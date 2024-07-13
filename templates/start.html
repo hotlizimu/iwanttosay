@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h6 class="display-3">Free Talk</h6>
+    <form action="{% url 'freetalk:start'  %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <br>
+        <button name="submit" class="btn btn-primary">加入或创建聊天室</button>
+    </form>
+    <br>
+<a class="btn btn-primary" href="{% url 'iwanttosay_app:index' %}" role="button">返回</a><br>
+
+{% endblock content %}

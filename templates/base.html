@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    {% load django_bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>I want to say</title>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="mt-4 p-5 border border-primary border-3 rounded">
+        {% block content %}{% endblock content %}
+    </div>
+</main>
+</body>
+<style>
+    body{
+        background: url({% static 'image.png' %});
+    }
+</style>
+</html>

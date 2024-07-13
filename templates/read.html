@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <div class="card mb-3">
+    <h6 class="card-header">
+        Ta在{{ text.date_added|date:'Y.m.d H:i' }}想对你说
+    </h6>
+    <div class="card-body"><p class="card-text">{{ text.text|linebreaks }}</p>
+    </div>
+    </div>
+    <br>
+<a class="btn btn-primary" href="{% url 'iwanttosay_app:index' %}" role="button">返回</a><br><br>
+<a class="btn btn-primary" href="{% url 'iwanttosay_app:delete' text.password %}" role="button">销毁</a>
+{% endblock content %}

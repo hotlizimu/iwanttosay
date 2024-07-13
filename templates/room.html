@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h3>Free Talk Room {{ room }}</h3>
+    <form action="{% url 'freetalk:room' room.number  %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button name="submit" class="btn btn-primary">发送</button>
+    </form>
+    <br>
+<div>
+{% for message in messages %}
+    <div class="card mb-3">
+    <h6 class="card-header">
+        {{ message.date_added|date:'Y.m.d H:i' }}
+    </h6>
+    <div class="card-body">{{ message.message|linebreaks }}
+    </div>
+    </div>
+{% empty %}
+    <p>还没有人说什么呢</p>
+{% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h6 class="display-3">I want to say</h6>
+    <form action="{% url 'iwanttosay_app:index'  %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <br>
+        <button name="submit" class="btn btn-primary">查看内容</button>
+    </form>
+    <br>
+<a class="btn btn-primary" href="{% url 'iwanttosay_app:write' %}" role="button">我相对Ta说</a><br><br>
+<a class="btn btn-primary" href="{% url 'freetalk:start' %}" role="button">Free Talk</a>
+{% endblock content %}
